@@ -1,0 +1,17 @@
+{
+    "name": "phpeter/attestation-covid",
+    "type": "project",
+    "require": {
+        "setasign/fpdf": "^1.8",
+        "chillerlan/php-qrcode": "^4.2",
+        "setasign/fpdi": "^2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PHPeter",
+            "email": "phpeter@phpeter.fr"
+        }
+    ],
+    "minimum-stability": "stable"
+}
