@@ -144,14 +144,16 @@ class Certificate {
         $qrcode = new QRCode();
         $imgUrl = $qrcode->render(
             'Cree le: ' . date('d/m/Y \a H\hi', $this->made_at) . ";\n" .
-            'Nom: ' . $this->citizen->getFirstname() . ";\n" .
-            'Prenom: ' . $this->citizen->getLastname() . ";\n" .
+            'Nom: ' . $this->citizen->getLastname() . ";\n" .
+            'Prenom: ' . $this->citizen->getFirstname() . ";\n" .
             'Naissance: ' . $this->citizen->getBirthDate() . ' a ' . $this->citizen->getBirthLocation() . ";\n" .
             'Adresse: ' . $this->citizen->getStreetAddress() . ";\n" .
             'Sortie: ' . date('d/m/Y \a H:i', $this->made_at) . ";\n" .
             'Motifs: ' . $this->reason . ";\n"
         );
         $this->pdf->Image($imgUrl, 150, 223, 40, 40, 'png');
+        $this->pdf->AddPage();
+        $this->pdf->Image($imgUrl, 7, 7, 120, 120, 'png');
 
         return $this;
     }
